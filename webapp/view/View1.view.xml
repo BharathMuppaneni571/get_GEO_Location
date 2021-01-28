@@ -1,0 +1,15 @@
+<mvc:View controllerName="get_GEO_Location.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+				    <sap.ui.layout.form:SimpleForm editable="true" layout="ResponsiveGridLayout" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" id="__form0">
+				        <sap.ui.layout.form:content>
+				            <Button text="Get Location" icon="sap-icon://locate-me" press="getLocation" width="30%"/>
+				         </sap.ui.layout.form:content>
+				    </sap.ui.layout.form:SimpleForm>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

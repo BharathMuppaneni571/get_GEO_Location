@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8">
+
+		<title>get_GEO_Location</title>
+
+		<script id="sap-ui-bootstrap"
+			src="../../resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_belize"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-resourceroots='{"get_GEO_Location": ""}'>
+		</script>
+		<script>
+			function getlocation(){
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(showPosition);
+				} else {
+					alert("Geolocation is not supported by this browser.");
+				}
+			}
+			function showPosition(position) {
+				var lat = position.coords.latitude ;
+				var long = position.coords.longitude;
+
+				if (!this.oDefaultMessageDialog) {
+					this.oDefaultMessageDialog = new sap.m.Dialog({
+						type: sap.m.DialogType.Message,
+						title: "Coordinates",
+						content: new sap.m.Text({ text: "latitude : " + lat + "\n" +"longitude : " + long }),
+						beginButton: new sap.m.Button({
+							type: sap.m.ButtonType.Emphasized,
+							text: "OK",
+							press: function () {
+								this.oDefaultMessageDialog.close();
+							}.bind(this)
+						})
+					});
+				}
+			this.oDefaultMessageDialog.open();
+			}
+		</script>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<script>
+			sap.ui.getCore().attachInit(function() {
+				new sap.m.Shell({
+					app: new sap.ui.core.ComponentContainer({
+						height : "100%",
+						name : "get_GEO_Location"
+					})
+				}).placeAt("content");
+			});
+		</script>
+	</head>
+
+	<body class="sapUiBody" id="content">
+	</body>
+
+</html>
